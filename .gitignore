@@ -1,0 +1,45 @@
+# =============================
+# Bağımlılıklar
+# =============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =============================
+# Environment & Gizli Bilgiler
+# =============================
+.env
+.env.local
+.env.*.local
+
+# =============================
+# Veritabanı & Kullanıcı Verisi
+# =============================
+data/
+
+# =============================
+# İşletim Sistemi Dosyaları
+# =============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =============================
+# IDE / Editor
+# =============================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# =============================
+# Log & Geçici Dosyalar
+# =============================
+*.log
+*.tmp
+*.cache
+dist/
+build/
