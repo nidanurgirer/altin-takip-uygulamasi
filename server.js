@@ -69,6 +69,32 @@ app.get('/api/health', async (req, res) => {
   });
 });
 
+// ─── Admin / Debug Stats Endpoint ────────────────────────────────────────────
+app.get('/api/stats', async (req, res) => {
+  try {
+    const { dbGet } = require('./db/database');
+    
+    const usersResult = await dbGet('SELECT COUNT(*) AS count FROM users', []);
+    const totalUsers = parseInt(usersResult?.count || 0, 10);
+    
+    const recordsResult = await dbGet('SELECT COUNT(*) AS count FROM user_gold_records', []);
+    const totalGoldRecords = parseInt(recordsResult?.count || 0, 10);
+
+    const stats = {
+      totalUsers,
+      totalGoldRecords,
+      databaseType: "PostgreSQL",
+      serverTime: new Date().toISOString()
+    };
+    
+    console.log('[STATS] GET /api/stats çağrıldı:', stats);
+    res.json(stats);
+  } catch (err) {
+    console.error('[STATS] /api/stats hatası:', err.message);
+    res.status(500).json({ error: 'Veriler alınamadı', details: err.message });
+  }
+});
+
 // SPA fallback
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
