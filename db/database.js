@@ -16,7 +16,8 @@ const GOLD_TYPES = {
   'ayar22_bilezik':{ name: '22 Ayar Bilezik',   weight: 1.00,  karat: 22, unit: 'gram', icon: '💍' },
   'gremse_altin':  { name: 'Gremse Altın',       weight: 17.50, karat: 22, unit: 'adet', icon: '🪙' },
   'eski_gremse':   { name: 'Eski Gremse Altın',  weight: 17.50, karat: 22, unit: 'adet', icon: '🪙' },
-  'gram_gumus':    { name: 'Gram Gümüş',         weight: 1.00,  karat: 0,  unit: 'gram', icon: '🥈' }
+  'gram_gumus':    { name: 'Gram Gümüş',         weight: 1.00,  karat: 0,  unit: 'gram', icon: '🥈' },
+  'ons_altin':     { name: 'Ons Altın',          weight: 31.10, karat: 24, unit: 'ons',  icon: '🌍' }
 };
 
 // ─── PostgreSQL Connection Pool ───────────────────────────────────────────────

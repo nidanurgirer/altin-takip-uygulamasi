@@ -179,21 +179,28 @@ const Prices = {
     if (!data || !data.prices) return;
 
     const prices = data.prices;
+    // Kullanıcının istediği kesin sıra:
     const goldTypeOrder = [
-      'has_altin',
       'gram_altin',
-      'ceyrek_altin', 'eski_ceyrek',
-      'yarim_altin', 'eski_yarim',
-      'tam_altin', 'eski_tam',
-      'ata_altin', 'eski_ata',
-      'ayar14_bilezik', 'ayar22_bilezik',
-      'gremse_altin', 'eski_gremse',
-      'gram_gumus'
+      'ceyrek_altin',
+      'yarim_altin',
+      'tam_altin',
+      'ata_altin',
+      'ayar22_bilezik',
+      'ons_altin'
     ];
 
-    grid.innerHTML = goldTypeOrder.map(typeId => {
+    // Belirtilen sıra harici gelenler olursa listenin en sonuna at
+    const remainingTypes = Object.keys(prices).filter(t => !goldTypeOrder.includes(t));
+    const finalOrder = [...goldTypeOrder, ...remainingTypes];
+    
+    const seen = new Set();
+
+    grid.innerHTML = finalOrder.map(typeId => {
       const info = prices[typeId];
-      if (!info) return '';
+      // Boş veri ve duplicate kontrolü
+      if (!info || !info.selling || seen.has(typeId)) return '';
+      seen.add(typeId);
 
       const changeClass = info.change > 0 ? 'up' : info.change < 0 ? 'down' : 'flat';
       const changeIcon = info.change > 0 ? '▲' : info.change < 0 ? '▼' : '●';

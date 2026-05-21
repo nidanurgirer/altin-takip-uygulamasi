@@ -25,7 +25,8 @@ const HAREM_KEY_MAP = {
   'AYAR22':     'ayar22_bilezik',
   'GREMESE_YENI':'gremse_altin',
   'GREMESE_ESKI':'eski_gremse',
-  'GUMUSTRY':   'gram_gumus'
+  'GUMUSTRY':   'gram_gumus',
+  'ONS':        'ons_altin'
 };
 
 let latestPrices = {};
@@ -71,6 +72,12 @@ haremSocket.on('connect_error', (err) => {
 haremSocket.on('price_changed', (args) => {
   if (!args || !args.data) return;
   const raw = args.data;
+  
+  // Log raw data specifically for debugging missing types (once every 10 updates to avoid spam)
+  if (Math.random() < 0.05) {
+    console.log('[GOLD ROUTE] Harem Raw Keys:', Object.keys(raw).join(', '));
+  }
+
   let updatedCount = 0;
 
   for (const [haremKey, ourKey] of Object.entries(HAREM_KEY_MAP)) {
