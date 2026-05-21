@@ -16,7 +16,7 @@ console.log('══════════════════════�
 console.log(`🌍 NODE_ENV    : ${process.env.NODE_ENV || 'development (varsayılan)'}`);
 console.log(`📡 PORT        : ${PORT}`);
 console.log(`🔗 BASE_URL    : ${process.env.BASE_URL || `http://localhost:${PORT} (varsayılan)`}`);
-console.log(`🗃️  DATABASE_URL : ${process.env.DATABASE_URL ? '✅ Set edilmiş' : '❌ SET EDİLMEMİŞ — PostgreSQL bağlantısı başarısız olabilir!'}`);
+console.log(`🗃️  DATABASE_URL : ${process.env.DATABASE_URL ? '✅ Set edilmiş (PostgreSQL kullanılıyor)' : '❌ SET EDİLMEMİŞ — PostgreSQL bağlantısı başarısız olabilir!'}`);
 console.log(`🔑 JWT_SECRET  : ${process.env.JWT_SECRET ? '✅ Set edilmiş (' + process.env.JWT_SECRET.length + ' karakter)' : '⚠️ SET EDİLMEMİŞ — Hardcoded fallback kullanılıyor'}`);
 console.log('════════════════════════════════════════\n');
 
@@ -77,7 +77,7 @@ app.get('/api/stats', async (req, res) => {
     const usersResult = await dbGet('SELECT COUNT(*) AS count FROM users', []);
     const totalUsers = parseInt(usersResult?.count || 0, 10);
     
-    const recordsResult = await dbGet('SELECT COUNT(*) AS count FROM user_gold_records', []);
+    const recordsResult = await dbGet('SELECT COUNT(*) AS count FROM gold_records', []);
     const totalGoldRecords = parseInt(recordsResult?.count || 0, 10);
 
     const stats = {
