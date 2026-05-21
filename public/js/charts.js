@@ -184,8 +184,8 @@ const Charts = {
             color: '#8888a0',
             font: { family: 'Inter', size: 11 },
             padding: 16,
-            usePointStyle: true,
-            pointStyleWidth: 10
+            boxWidth: 0,
+            usePointStyle: false
           }
         },
         tooltip: {
