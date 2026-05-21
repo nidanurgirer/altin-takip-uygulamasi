@@ -372,4 +372,26 @@ const App = {
 };
 
 // Tüm scriptler yüklendikten sonra uygulamayı başlat
-window.addEventListener('load', () => App.init());
+window.addEventListener('load', () => {
+  App.init();
+
+  // DEBUGGING: Check for horizontal overflow causing zoom issues on mobile Safari
+  setTimeout(() => {
+    const docWidth = document.documentElement.scrollWidth;
+    const winWidth = window.innerWidth;
+    console.log('[DEBUG] Layout Width:', docWidth, 'Viewport Width:', winWidth);
+    
+    if (docWidth > winWidth) {
+      console.warn('⚠️ DİKKAT: Sayfada overflow oluşturan elementler var!');
+      document.querySelectorAll('*').forEach(el => {
+        if (el.scrollWidth > winWidth && el.tagName !== 'BODY' && el.tagName !== 'HTML') {
+          console.warn('Taşan Element:', el.tagName, el.className, el);
+          // Highlight it visually if you want to inspect locally
+          // el.style.border = '2px solid red';
+        }
+      });
+    } else {
+      console.log('✅ Sayfa genişliği mükemmel, overflow (taşma) yok.');
+    }
+  }, 1000); // 1 sn sonra (render sonrası) çalıştır
+});

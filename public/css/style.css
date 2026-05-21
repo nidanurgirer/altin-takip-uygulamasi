@@ -76,7 +76,7 @@
 
 html, body {
   width: 100%;
-  max-width: 100vw;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
@@ -857,6 +857,8 @@ input[type="number"] { -moz-appearance: textfield; }
   position: relative;
   height: 260px;
   margin-top: var(--space-md);
+  max-width: 100%;
+  overflow: hidden;
 }
 
 /* ============================
@@ -1451,20 +1453,22 @@ input[type="number"] { -moz-appearance: textfield; }
    ============================ */
 @media (max-width: 768px) {
   .sidebar {
-    /* Mobilde varsayılan olarak gizli */
-    transform: translateX(-100%);
+    /* Mobilde varsayılan olarak gizli - Safari overflow bug'ını önlemek için transform yerine left kullanıyoruz */
+    left: -100%;
+    transform: none;
+    transition: left var(--transition-smooth);
     /* Mobil overlay z-index */
     z-index: 200;
   }
 
   .sidebar.open {
-    transform: translateX(0);
+    left: 0;
     box-shadow: 20px 0 60px rgba(0, 0, 0, 0.5);
   }
 
   /* Auth modunda sidebar kesinlikle gizli */
   .sidebar.sidebar-hidden {
-    transform: translateX(-100%) !important;
+    left: -100% !important;
     pointer-events: none;
   }
 
