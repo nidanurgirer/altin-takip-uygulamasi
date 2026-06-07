@@ -555,7 +555,7 @@ const GoldForm = {
     this.editMode = false;
     this.editRecordId = null;
     document.getElementById('gold-form').reset();
-    document.getElementById('add-form-title').textContent = '➕ Yeni Altın Kaydı';
+    document.getElementById('add-form-title').textContent = 'Yeni Altın Kaydı';
     document.getElementById('gold-submit-btn').textContent = 'Kaydet';
     document.getElementById('gold-cancel-btn').style.display = 'none';
     document.getElementById('gold-date').value = new Date().toISOString().split('T')[0];
