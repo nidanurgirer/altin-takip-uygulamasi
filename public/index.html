@@ -7,7 +7,7 @@
   <title>AltınTakip — Kişisel Altın Yatırım Yönetimi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=119">
+  <link rel="stylesheet" href="/css/style.css?v=120">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -284,20 +284,20 @@
       <!-- ===== ADD GOLD PAGE ===== -->
       <div id="page-add" class="page">
         <div class="card add-form-card">
-          <h3 id="add-form-title">➕ Yeni Altın Kaydı</h3>
+          <h3 id="add-form-title" style="color: red;">➕ Yeni Altın Kaydı</h3>
           <form id="gold-form" class="gold-form">
             <input type="hidden" id="edit-record-id" value="">
             
-            <div class="form-row">
-              <div class="form-group transaction-type-group">
-                <label>İşlem Türü</label>
-                <div class="radio-group" style="display: flex; gap: 1rem; align-items: center; height: 42px;">
-                  <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--green-500); font-weight: 500;">
-                    <input type="radio" name="transaction_type" value="buy" checked> Alış
-                  </label>
-                  <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--red-500); font-weight: 500;">
-                    <input type="radio" name="transaction_type" value="sell"> Satış
-                  </label>
+            <div class="form-group transaction-type-group">
+              <label class="field-label">İŞLEM TÜRÜ</label>
+              <div class="radio-group">
+                <div class="radio-option radio-option--buy">
+                  <input type="radio" id="type-buy" name="transaction_type" value="buy" checked>
+                  <label for="type-buy">ALIŞ</label>
+                </div>
+                <div class="radio-option radio-option--sell">
+                  <input type="radio" id="type-sell" name="transaction_type" value="sell">
+                  <label for="type-sell">SATIŞ</label>
                 </div>
               </div>
             </div>
@@ -403,11 +403,11 @@
   <div id="toast-container" class="toast-container"></div>
 
   <!-- app.js önce yüklenmeli: App objesi diğer modüller tarafından kullanılıyor -->
-  <script src="/js/app.js?v=119"></script>
-  <script src="/js/auth.js?v=119"></script>
-  <script src="/js/charts.js?v=119"></script>
-  <script src="/js/dashboard.js?v=119"></script>
-  <script src="/js/records.js?v=119"></script>
-  <script src="/js/settings.js?v=119"></script>
+  <script src="/js/app.js?v=120"></script>
+  <script src="/js/auth.js?v=120"></script>
+  <script src="/js/charts.js?v=120"></script>
+  <script src="/js/dashboard.js?v=120"></script>
+  <script src="/js/records.js?v=120"></script>
+  <script src="/js/settings.js?v=120"></script>
 </body>
 </html>
