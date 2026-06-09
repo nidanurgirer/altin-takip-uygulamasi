@@ -26,26 +26,31 @@ Altın Takip Uygulaması; alım-satım işlemlerinizi kayıt altına alabileceğ
 | 📊 **Canlı Fiyatlar** | Harem Altın WebSocket ile anlık altın/gümüş fiyatları |
 | 💼 **Portföy Yönetimi** | Alım/satım kaydı, kâr-zarar hesabı, ortalama maliyet |
 | 📈 **Finansal Analiz** | Dashboard'da görsel portföy dağılımı ve yatırım analizi |
-| 📧 **E-posta Bildirimleri** | Hesap doğrulama ve e-posta değişiklik bildirimleri |
+| 📧 E-posta Altyapısı | Hesap işlemleri için e-posta desteği |
 | 📱 **Responsive Tasarım** | Mobil uyumlu, modern arayüz |
 
 ---
 
 ## 🛠 Kullanılan Teknolojiler
 
-**Backend**
-- [Node.js](https://nodejs.org) + [Express.js](https://expressjs.com) — Web sunucusu
-- [sql.js](https://sql.js.org) — SQLite veritabanı (dosya tabanlı)
-- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) — JWT kimlik doğrulama
-- [bcryptjs](https://github.com/dcodeIO/bcrypt.js) — Şifre hashleme
-- [nodemailer](https://nodemailer.com) — E-posta gönderimi
-- [socket.io-client](https://socket.io) — Harem Altın WebSocket bağlantısı
-- [dotenv](https://github.com/motdotla/dotenv) — Environment variable yönetimi
+### Backend
 
-**Frontend**
+- Node.js + Express.js - Web sunucusu ve REST API
+- PostgreSQL - Kullanıcı ve yatırım verilerinin saklanması
+- jsonwebtoken (JWT) - Kimlik doğrulama ve oturum yönetimi
+- bcryptjs - Şifre hashleme ve güvenlik
+- nodemailer - E-posta işlemleri
+- dotenv - Environment variable yönetimi
+
+### Frontend
+
 - Vanilla HTML5 / CSS3 / JavaScript
-- SSE (Server-Sent Events) — Canlı fiyat akışı
+- Responsive Tasarım (Mobil Uyumlu Arayüz)
 
+### Deployment
+
+- Git & GitHub - Versiyon kontrolü
+- Render - Uygulama ve veritabanı barındırma
 ---
 
 ## 🚀 Kurulum
